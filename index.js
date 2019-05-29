@@ -10,7 +10,7 @@ let nhlData;
 
 
 // Load the NHL data for when client's first connect
-data.getData().then((result) => {
+data.getData_nhl().then((result) => {
   nhlData = result;
 });
 
@@ -37,8 +37,11 @@ http.listen(3000, function() {
 io.on('connection', function(socket) {
   console.log('Client connection received');
 
-  // When clients connect, send the NHL data
+  // When clients connect, send the data for each league
   socket.emit('nhl-data', nhlData);
+  socket.emit('nba-data', nbaData);
+  socket.emit('nfl-data', nflData);
+  socket.emit('mlb-data', mlbData);
 
   // socket.on('receivedFromClient', function(data) {
   //   console.log(data);

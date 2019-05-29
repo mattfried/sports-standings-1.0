@@ -57,7 +57,7 @@ h2 {
 
 #btnContainer {
   /* CHANGE THIS BACK TO 0 WHEN DONE */
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s;
   text-align: center;
   margin: auto;
