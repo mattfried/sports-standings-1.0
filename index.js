@@ -37,7 +37,7 @@ http.listen(3000, function() {
 io.on('connection', function(socket) {
   console.log('Client connection received');
 
-  // When clients connect, send the latest data
+  // When clients connect, send the latest NHL data
   socket.emit('data', latestData);
 
   // socket.on('receivedFromClient', function(data) {

@@ -9,20 +9,6 @@
   <body>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-      const socket = io();
-      let nhlData;
-
-      // socket.on('sendToClient', function(data) {
-      //   console.log(data);
-      //
-      //   socket.emit('receivedFromClient', 'hello there');
-      // });
-
-      socket.on('data', function(data) {
-        nhlData = data;
-        console.log(nhlData);
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
