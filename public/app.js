@@ -51,18 +51,6 @@ const showStandings = (e) => {
 // }
 
 
-//======================================
-//======================================
-
-
-// Receive nhl data from index.js
-socket.on('nhl-data', function(data) {
-  let nhlData;
-  nhlData = data;
-  
-  console.log('this is the data:');
-  console.log(nhlData);
-
 
   // Get standings function to call for each league
   const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league) => {
@@ -333,20 +321,100 @@ socket.on('nhl-data', function(data) {
   } // end getStandings function
 
 
+//======================================
+//======================================
 
-//let count = 0;
-// set NHL variables for getStandings function arguments
-    const league = 'nhl';
-    const confs = ['Eastern', 'Western'];
-    const divisions = ["Atlantic", "Metropolitan", "Pacific", "Central"];
-    const firstDivsInConfs = ['Atlantic', 'Pacific'];
-    const totalTeams = data.teams.length;
-    const overallStandings = [];
-    const divisionStandings = [];
+// Receive nhl data from index.js
+socket.on('nhl-data', function(data) {
+  let nhlData;
+  nhlData = data;
+  
+  console.log('this is the nhl data:');
+  console.log(nhlData);
+
+  //let count = 0;
+  // set nhl variables for getStandings function arguments
+  const league = 'nhl';
+  const confs = ['Eastern', 'Western'];
+  const divisions = ["Atlantic", "Metropolitan", "Pacific", "Central"];
+  const firstDivsInConfs = ['Atlantic', 'Pacific'];
+  const totalTeams = data.teams.length;
+  const overallStandings = [];
+  const divisionStandings = [];
+
+  // call getStandings function, passings nhl data & divisions
+  getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
+  
+});
 
 
-    // call getStandings function, passings nhl data & divisions
-    getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
+// Receive nba data from index.js
+socket.on('nba-data', function(data) {
+  let nbaData;
+  nbaData = data;
+  
+  console.log('this is the nba data:');
+  console.log(nbaData);
+
+  //let count = 0;
+  // set nba variables for getStandings function arguments
+  const league = 'nba';
+  const confs = ['Eastern', 'Western'];
+  const divisions = ["Atlantic", "Central", "Southeast", "Northwest", "Pacific", "Southwest"];
+  const firstDivsInConfs = ['Atlantic', 'Northwest'];
+  const totalTeams = data.teams.length;
+  const overallStandings = [];
+  const divisionStandings = [];
+
+  // call getStandings function, passings nhl data & divisions
+  getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
+  
+});
 
 
+// Receive nfl data from index.js
+socket.on('nfl-data', function(data) {
+  let nflData;
+  nflData = data;
+  
+  console.log('this is the nfl data:');
+  console.log(nflData);
+
+  //let count = 0;
+  // set nfl variables for getStandings function arguments
+  const league = 'nfl';
+  const confs = ['AFC', 'NFC'];
+  const divisions = ["AFC East", "AFC North", "AFC South", "AFC West", "NFC East", "NFC North", "NFC South", "NFC West"];
+  const firstDivsInConfs = ['AFC East', 'NFC East'];
+  const totalTeams = data.teams.length;
+  const overallStandings = [];
+  const divisionStandings = [];
+
+  // call getStandings function, passings nhl data & divisions
+  getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
+  
+});
+
+
+// Receive mlb data from index.js
+socket.on('mlb-data', function(data) {
+  let mlbData;
+  mlbData = data;
+  
+  console.log('this is the mlb data:');
+  console.log(mlbData);
+
+  //let count = 0;
+  // set mlb variables for getStandings function arguments
+  const league = 'mlb';
+  const confs = ['American League', 'National League'];
+  const divisions = ["East", "Central", "West", "East", "Central", "West"];
+  const firstDivsInConfs = ['East', 'East'];
+  const totalTeams = data.teams.length;
+  const overallStandings = [];
+  const divisionStandings = [];
+
+  // call getStandings function, passings nhl data & divisions
+  getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
+  
 });
