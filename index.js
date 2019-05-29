@@ -5,12 +5,27 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const data = require('./data.js');
 
-// Global variable to store the NHL data
+// Global variable to store the league data
 let nhlData;
+let nbaData;
+let nflData;
+let mlbData;
 
 
-// Load the NHL data for when client's first connect
+// Load each league data for when client's first connect
 data.getData_nhl().then((result) => {
+  nhlData = result;
+});
+
+data.getData_nba().then((result) => {
+  nhlData = result;
+});
+
+data.getData_nfl().then((result) => {
+  nhlData = result;
+});
+
+data.getData_mlb().then((result) => {
   nhlData = result;
 });
 
