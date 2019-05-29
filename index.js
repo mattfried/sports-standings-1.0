@@ -38,23 +38,9 @@ io.on('connection', function(socket) {
   console.log('Client connection received');
 
   // When clients connect, send the latest NHL data
-  socket.emit('data', latestData);
+  socket.emit('nhl-data', latestData);
 
   // socket.on('receivedFromClient', function(data) {
   //   console.log(data);
   // });
 });
-
-
-// Refresh data
-setInterval( function() {
-  data.getData().then((result) => {
-    // Update latest results for when new client's connect
-    latestData = result;
-
-    // Send it to all connected clients
-    io.emit('data', result);
-
-    console.log('Last updated: ' + new Data());
-  });
-}, 300000);

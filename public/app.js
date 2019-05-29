@@ -1,6 +1,6 @@
 const socket = io();
 
-socket.on('data', function(data) {
+socket.on('nhl-data', function(data) {
   let nhlData;
 
   nhlData = data;
