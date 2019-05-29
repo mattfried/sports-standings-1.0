@@ -43,12 +43,13 @@ app.get('/', function(req, res) {
 // Serve all static files in 'public' directory
 app.use(express.static('public'));
 
+
 // Listen at http://localhost:3000/
 http.listen(3000, function() {
   console.log('HTTP server started on port 3000');
 });
 
-
+// When client connects execute this function
 io.on('connection', function(socket) {
   console.log('Client connection received');
 

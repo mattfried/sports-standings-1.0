@@ -331,8 +331,8 @@ socket.on('nhl-data', function(data) {
   let nhlData;
   nhlData = data;
   
-  console.log('this is the nhl data:');
-  console.log(nhlData);
+  // console.log('this is the nhl data:');
+  // console.log(nhlData);
 
   //let count = 0;
   // set nhl variables for getStandings function arguments
@@ -357,8 +357,8 @@ socket.on('nba-data', function(data) {
   let nbaData;
   nbaData = data;
   
-  console.log('this is the nba data:');
-  console.log(nbaData);
+  // console.log('this is the nba data:');
+  // console.log(nbaData);
 
   //let count = 0;
   // set nba variables for getStandings function arguments
@@ -383,8 +383,8 @@ socket.on('nfl-data', function(data) {
   let nflData;
   nflData = data;
   
-  console.log('this is the nfl data:');
-  console.log(nflData);
+  // console.log('this is the nfl data:');
+  // console.log(nflData);
 
   //let count = 0;
   // set nfl variables for getStandings function arguments
@@ -409,8 +409,8 @@ socket.on('mlb-data', function(data) {
   let mlbData;
   mlbData = data;
   
-  console.log('this is the mlb data:');
-  console.log(mlbData);
+  // console.log('this is the mlb data:');
+  // console.log(mlbData);
 
   // set mlb variables for getStandings function arguments
   const league = 'mlb';
