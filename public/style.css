@@ -1,0 +1,228 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,200,100);
+
+* {
+  box-sizing: border-box;
+}
+
+#standings {
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-size: 0.725em;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  transition: opacity 1s;
+}
+
+#select {
+  text-align: center;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  margin-top: 30vh;
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+
+.title {
+  display: block;
+  margin: auto;
+  max-width: 400px;
+  padding: 5px;
+  width: 100%;
+}
+
+.conf-title {
+  display: block;
+  margin: auto;
+  max-width: 400px;
+  padding: 5px;
+  width: 100%;
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+  font-size: 1.75em;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  text-shadow: -1px -1px 3px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+}
+
+h2 {
+  color: rgb(0, 0, 0);
+  margin: 0.25em auto;
+  font-size: 1.5em;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+}
+
+#btnContainer {
+  opacity: 0;
+  transition: opacity 0.5s;
+  text-align: center;
+  margin: auto;
+}
+
+button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.5em 1.25em;
+  border: 0.1em solid black;
+  margin: 0.5em;
+  width: 40%;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 300;
+  color: black;
+  background-color: white;
+  text-align: center;
+  outline: none;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+}
+
+
+/*** Table Styles **/
+
+.table {
+  background: white;
+  border-radius: 3px;
+  border-collapse: collapse;
+  height: 320px;
+  margin: auto;
+  margin-bottom: 2em;
+  max-width: 400px;
+  padding: 5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+
+th {
+  color: #D5DDE5;;
+  background: #1b1e24;
+  border-bottom: 4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size: 1.25em;
+  font-weight: 300;
+  padding: 0.75em;
+  text-align: left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+th:first-child {
+  border-top-left-radius: 3px;
+}
+
+th:last-child {
+  border-top-right-radius: 3px;
+  border-right: none;
+}
+
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom: 1px solid #C1C3D1;
+  color: #666B85;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+tr:hover td {
+  background: #4E5066;
+  color: #FFFFFF;
+}
+
+tr:first-child {
+  border-top: none;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+tr:nth-child(odd) td {
+  background: #EBEBEB;
+}
+
+tr:nth-child(odd):hover td {
+  background: #4E5066;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+
+td {
+  background:#FFFFFF;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 100;
+  font-size: 1.1em;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+  border-right: 1px solid #C1C3D1;
+}
+
+thead tr td {
+  font-weight: 300;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 300;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+@media screen and (min-width: 500px) {
+
+  .table, .title, .conf-title, #btnContainer {
+    max-width: 600px;
+  }
+
+  #standings {
+    font-size: 0.85em;
+  }
+
+  td {
+    padding: 0.625em;
+  }
+}
+
+@media screen and (min-width: 900px) {
+
+  .btn {
+    width: 20%;
+  }
+
+  .table, .title, .conf-title, #btnContainer {
+    max-width: 800px;
+  }
+
+  #standings {
+    font-size: 1em;
+  }
+
+}
