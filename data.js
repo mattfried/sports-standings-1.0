@@ -1,4 +1,5 @@
-//==========mysportsfeeds=========
+// MySportsFeeds API data request
+// https://github.com/MySportsFeeds/mysportsfeeds-node
 const config = require('./config.js');
 const MySportsFeeds = require('mysportsfeeds-node');
 const msf = new MySportsFeeds('2.0', true);

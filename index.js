@@ -5,14 +5,13 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const data = require('./data.js');
 
-// Global variable to store the latest NHL results
-let latestData;
+// Global variable to store the NHL data
+let nhlData;
 
 
-// Load the NHL data for when client's first connection
-// This will be updated every 10 minutes
+// Load the NHL data for when client's first connect
 data.getData().then((result) => {
-  latestData = result;
+  nhlData = result;
 });
 
 // Route created at the root of the site "/"
@@ -29,6 +28,7 @@ app.get('/', function(req, res) {
 // Serve all static files in 'public' directory
 app.use(express.static('public'));
 
+// Listen at http://localhost:3000/
 http.listen(3000, function() {
   console.log('HTTP server started on port 3000');
 });
@@ -37,8 +37,8 @@ http.listen(3000, function() {
 io.on('connection', function(socket) {
   console.log('Client connection received');
 
-  // When clients connect, send the latest NHL data
-  socket.emit('nhl-data', latestData);
+  // When clients connect, send the NHL data
+  socket.emit('nhl-data', nhlData);
 
   // socket.on('receivedFromClient', function(data) {
   //   console.log(data);
