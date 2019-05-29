@@ -2,11 +2,26 @@
 <html lang="en">
 
   <head>
-    <meta charset="utf-8">
-    <title>sports yooo</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Standings</title>
   </head>
 
   <body>
+
+      <div id="btnContainer">
+          <button class="btn" id="nhlBtn" onclick="showStandings(this)">NHL Standings</button>
+    
+          <button class="btn" id="nbaBtn" onclick="showStandings(this)">NBA Standings</button>
+    
+          <button class="btn" id="nflBtn" onclick="showStandings(this)">NFL Standings</button>
+    
+          <button class="btn" id="mlbBtn" onclick="showStandings(this)">MLB Standings</button>
+        </div>
+    
+        <div id="select" class="animated infinite pulse">LOADING...</div>
+    
+    
+        <div id="standings"></div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="app.js"></script>
