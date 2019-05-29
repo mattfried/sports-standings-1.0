@@ -18,15 +18,15 @@ data.getData_nhl().then((result) => {
 });
 
 data.getData_nba().then((result) => {
-  nhlData = result;
+  nbaData = result;
 });
 
 data.getData_nfl().then((result) => {
-  nhlData = result;
+  nflData = result;
 });
 
 data.getData_mlb().then((result) => {
-  nhlData = result;
+  mlbData = result;
 });
 
 // Route created at the root of the site "/"
