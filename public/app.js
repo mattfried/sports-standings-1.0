@@ -327,10 +327,10 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
 =====================================================*/
 
 // Receive nhl data from index.js
-socket.on('nhl-data', function(data) {
+socket.on('nhl-data', (data) => {
   let nhlData;
   nhlData = data;
-  
+
   // console.log('this is the nhl data:');
   // console.log(nhlData);
 
@@ -346,17 +346,17 @@ socket.on('nhl-data', function(data) {
 
   // call getStandings function, passings nhl data & divisions
   getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
-  
+
   count++;
   isReady();
 });
 
 
 // Receive nba data from index.js
-socket.on('nba-data', function(data) {
+socket.on('nba-data', (data) => {
   let nbaData;
   nbaData = data;
-  
+
   // console.log('this is the nba data:');
   // console.log(nbaData);
 
@@ -372,17 +372,17 @@ socket.on('nba-data', function(data) {
 
   // call getStandings function, passings nba data & divisions
   getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
-  
+
   count++;
   isReady();
 });
 
 
 // Receive nfl data from index.js
-socket.on('nfl-data', function(data) {
+socket.on('nfl-data', (data) => {
   let nflData;
   nflData = data;
-  
+
   // console.log('this is the nfl data:');
   // console.log(nflData);
 
@@ -398,17 +398,17 @@ socket.on('nfl-data', function(data) {
 
   // call getStandings function, passings nfl data & divisions
   getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
-  
+
   count++;
   isReady();
 });
 
 
 // Receive mlb data from index.js
-socket.on('mlb-data', function(data) {
+socket.on('mlb-data', (data) => {
   let mlbData;
   mlbData = data;
-  
+
   // console.log('this is the mlb data:');
   // console.log(mlbData);
 
@@ -423,7 +423,7 @@ socket.on('mlb-data', function(data) {
 
   // call getStandings function, passings mlb data & divisions
   getStandings(data, totalTeams, confs, firstDivsInConfs, divisions, divisionStandings, overallStandings, league);
-  
+
   count++;
   isReady();
 });

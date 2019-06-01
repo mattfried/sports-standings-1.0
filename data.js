@@ -7,28 +7,28 @@ const msf = new MySportsFeeds('2.0', true);
 msf.authenticate(config.msf_vars.api_key, 'MYSPORTSFEEDS');
 
 // Get NHL data from MySportsFeeds API and export for use in index.js
-exports.getData_nhl = function() {
+exports.getData_nhl = () => {
   return msf.getData('nhl', '2018-2019-regular', 'seasonal_standings', 'json', {
     force: true
   });
 };
 
 // Get NBA data from MySportsFeeds API and export for use in index.js
-exports.getData_nba = function() {
+exports.getData_nba = () => {
   return msf.getData('nba', '2018-2019-regular', 'seasonal_standings', 'json', {
     force: true
   });
 };
 
 // Get NFL data from MySportsFeeds API and export for use in index.js
-exports.getData_nfl = function() {
+exports.getData_nfl = () => {
   return msf.getData('nfl', '2018-regular', 'seasonal_standings', 'json', {
     force: true
   });
 };
 
 // Get MLB data from MySportsFeeds API and export for use in index.js
-exports.getData_mlb = function() {
+exports.getData_mlb = () => {
   return msf.getData('mlb', '2019-regular', 'seasonal_standings', 'json', {
     force: true
   });

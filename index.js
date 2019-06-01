@@ -45,12 +45,12 @@ app.use(express.static('public'));
 
 
 // Listen at http://localhost:3000/
-http.listen(3000, function() {
+http.listen(3000, () => {
   console.log('HTTP server started on port 3000');
 });
 
 // When client connects execute this function
-io.on('connection', function(socket) {
+io.on('connection', (socket) => {
   console.log('Client connection received');
 
   // When clients connect, send the data for each league
