@@ -59,10 +59,24 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
 
   /* if MYSPORTSFEEDS response data misses a rank #,
   then object property will be undefined in for loops below.
-  console error will be logged as per for loops below...*/
+  error will be logged to console...*/
+
+  let allTeams = data.teams;
 
   // PUSH TEAMS INTO OVERALL STANDINGS, BASED ON OVERALL RANK
   for (let rank = 1; rank <= totalTeams; rank++ ) {
+
+    const checkRank = (el) => {
+      return el.overallRank.rank !== rank;
+    }
+    //console.log(allTeams.every(checkRank));
+
+    //*********************************************
+    // ADD 1 TO 'totalTeams' FOR EACH TIME
+    // 'allTeams.every(checkRank)' returns true
+    // IN 'NFL' INSTANCE, THAT WOULD BE  'totalTeams = totalTeams + 2'
+    //*********************************************
+
     for (let i = 0; i < totalTeams; i++) {
       if (data.teams[i].overallRank.rank === rank) {
         overallStandings.push(data.teams[i]);
@@ -80,8 +94,9 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
 
     // for each team
     for (let t = 0; t < data.teams.length; t++) {
-      /* NFL response data object from MYSPORTSFEEDS may have skipped a rank #,
-      therefore overallStandings object is missing team(s) */
+      /* NFL response data object from MYSPORTSFEEDS currently has bug
+      where no team is given rank 5 or 29,
+      therefore overallStandings object is missing these team(s) */
 
       //  console log error message if object property is undefined
       if (typeof overallStandings[t] === 'undefined') {
@@ -383,8 +398,8 @@ socket.on('nfl-data', (data) => {
   let nflData;
   nflData = data;
 
-  // console.log('this is the nfl data:');
-  // console.log(nflData);
+  console.log('this is the nfl data:');
+  console.log(nflData);
 
   //let count = 0;
   // set nfl variables for getStandings function arguments
