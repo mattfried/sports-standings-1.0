@@ -48,6 +48,8 @@ app.use(express.static('public'));
 http.listen(3000, () => {
   console.log('HTTP server started on port 3000');
 });
+// Use this port for deploying to Heroku:
+//http.listen(process.env.PORT || 5000);
 
 // When client connects execute this function
 io.on('connection', (socket) => {
