@@ -57,12 +57,29 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
 
   let content = '';
 
-  /* if MYSPORTSFEEDS response data misses a rank #,
-  then object property will be undefined in for loops below.
-  console error will be logged as per for loops below...*/
+  let allTeams = data.teams;
+
+  // use totalTeamsEdit for if any rank #(s) are not assigned to any given team in return data
+  let totalTeamsEdit = totalTeams;
+  for (let rank = 1; rank <= totalTeamsEdit; rank++ ) {
+  // checkRank checks if any rank #'s are not assigned to any given team in return data
+  // example: rank 1, 2, 4, 5, 7 (where rank # 3 & 6 are missing, and not given to any team)
+  const checkRank = (el) => {
+    return el.overallRank.rank !== rank;
+  }
+
+  // if any rank #(s) are missing from return data
+  // then 1 to totalTeamsEdit for each missing rank #
+  // then use totalTeamsEdit in place of totalTeams in for loop
+  if (allTeams.every(checkRank) === true) {
+    totalTeamsEdit++;
+    console.log(`overallRank.rank #${rank} is not assigned to a team in ${league} data returned from MySportsFeeds`);
+  }
+}
 
   // PUSH TEAMS INTO OVERALL STANDINGS, BASED ON OVERALL RANK
-  for (let rank = 1; rank <= totalTeams; rank++ ) {
+  for (let rank = 1; rank <= totalTeamsEdit; rank++ ) {
+
     for (let i = 0; i < totalTeams; i++) {
       if (data.teams[i].overallRank.rank === rank) {
         overallStandings.push(data.teams[i]);
@@ -70,8 +87,9 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
     }
   }
 
-  console.log(league + ' overall standings:');
-  console.log(overallStandings);
+  //  Log overall standings to console
+  //console.log(league + ' overall standings:');
+  //console.log(overallStandings);
 
   // ORGANIZE OVERALL STANDINGS INTO DIVISIONS
   // for each division
@@ -80,17 +98,21 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
 
     // for each team
     for (let t = 0; t < data.teams.length; t++) {
-      /* NFL response data object from MYSPORTSFEEDS may have skipped a rank #,
-      therefore overallStandings object is missing team(s) */
+
+      /*
+      //  I USED THIS TO DEBUG MISSING RANK #'S IN RESPONSE DATA FROM MYSPORTSFEEDS.
+      //  THIS HAS NOW BEEN SUPERSEDED BY checkRank FUNCTION ABOVE
 
       //  console log error message if object property is undefined
-      if (typeof overallStandings[t] === 'undefined') {
-        console.log(`${league} team with index ${t} could not be found in overallStandings object,
-                        when looping through ${divisions[d]} division. Team(s) may be missing from the DOM standings`);
-      }
+      // if (typeof overallStandings[t] === 'undefined') {
+      //   console.log(`${league} team with index ${t} could not be found in overallStandings object,
+      //                   when looping through ${divisions[d]} division. Team(s) may be missing from the DOM standings`);
+      // }
+      */
+
       // MLB league response data has duplicate division names,
       // therefore counter variable is used to distinguish which conference
-      else if (league === 'mlb') {
+      if (league === 'mlb') {
         let counter = 0;
         if (d >= 3) {
           counter = 1;
@@ -109,8 +131,9 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
     divisionStandings.push(current);
   } // end of each division loop
 
-  console.log(league + ' division standings:');
-  console.log(divisionStandings);
+  //  Log division standings to console
+  //console.log(league + ' division standings:');
+  //console.log(divisionStandings);
 
 
   // main title html
