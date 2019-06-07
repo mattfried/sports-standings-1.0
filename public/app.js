@@ -87,8 +87,9 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
     }
   }
 
-  console.log(league + ' overall standings:');
-  console.log(overallStandings);
+  //  Log overall standings to console
+  //console.log(league + ' overall standings:');
+  //console.log(overallStandings);
 
   // ORGANIZE OVERALL STANDINGS INTO DIVISIONS
   // for each division
@@ -97,18 +98,21 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
 
     // for each team
     for (let t = 0; t < data.teams.length; t++) {
-      /* NFL response data object from MYSPORTSFEEDS currently has bug
-      where no team is given rank 5 or 29,
-      therefore overallStandings object is missing these team(s) */
+
+      /*
+      //  I USED THIS TO DEBUG MISSING RANK #'S IN RESPONSE DATA FROM MYSPORTSFEEDS.
+      //  THIS HAS NOW BEEN SUPERSEDED BY checkRank FUNCTION ABOVE
 
       //  console log error message if object property is undefined
-      if (typeof overallStandings[t] === 'undefined') {
-        console.log(`${league} team with index ${t} could not be found in overallStandings object,
-                        when looping through ${divisions[d]} division. Team(s) may be missing from the DOM standings`);
-      }
+      // if (typeof overallStandings[t] === 'undefined') {
+      //   console.log(`${league} team with index ${t} could not be found in overallStandings object,
+      //                   when looping through ${divisions[d]} division. Team(s) may be missing from the DOM standings`);
+      // }
+      */
+
       // MLB league response data has duplicate division names,
       // therefore counter variable is used to distinguish which conference
-      else if (league === 'mlb') {
+      if (league === 'mlb') {
         let counter = 0;
         if (d >= 3) {
           counter = 1;
@@ -127,8 +131,9 @@ const getStandings = (data, totalTeams, confs, firstDivsInConfs, divisions, divi
     divisionStandings.push(current);
   } // end of each division loop
 
-  console.log(league + ' division standings:');
-  console.log(divisionStandings);
+  //  Log division standings to console
+  //console.log(league + ' division standings:');
+  //console.log(divisionStandings);
 
 
   // main title html
@@ -401,8 +406,8 @@ socket.on('nfl-data', (data) => {
   let nflData;
   nflData = data;
 
-  console.log('this is the nfl data:');
-  console.log(nflData);
+  // console.log('this is the nfl data:');
+  // console.log(nflData);
 
   //let count = 0;
   // set nfl variables for getStandings function arguments
