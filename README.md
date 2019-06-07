@@ -1,7 +1,7 @@
 # sports-standings
 Sports Standings website
 
-*{website link tbd}*
+http://www.sportstandings.ca/
 
 
 ## About:
