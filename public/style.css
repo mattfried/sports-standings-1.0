@@ -196,6 +196,28 @@ a:hover {
 }
 
 
+/*** Footer Styles **/
+
+footer {
+  text-align: center;
+  margin-top: calc(100vh - (30vh + 135px));
+}
+
+#devTag {
+  font-size: 0.75em;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-weight: 300;
+}
+
+#devTag a {
+  text-decoration: underline;
+}
+
+
+
+
+/*** Media Queries **/
+
 @media screen and (min-width: 500px) {
 
   .table, .title, .conf-title, #btnContainer {
@@ -223,6 +245,10 @@ a:hover {
 
   #standings {
     font-size: 1em;
+  }
+
+  footer {
+    margin-top: calc(100vh - (30vh + 110px));
   }
 
 }

@@ -21,6 +21,12 @@ let mlbContent = '';
 standingsDiv.style.visibility = 'hidden';
 standingsDiv.style.opacity = '0';
 
+// reduce footer top margin when standings appear
+const footer = document.getElementById('footer');
+const footerMargin = () => {
+  footer.style.marginTop = "2em";
+}
+
 // Show standings when corresponding league button is clicked
 const showStandings = (e) => {
   if (e === nhlBtn) {
@@ -35,6 +41,7 @@ const showStandings = (e) => {
   standingsDiv.style.visibility = 'visible';
   standingsDiv.style.opacity = '1';
   document.querySelector('#select').style.display = 'none';
+  footerMargin();
 }
 
 // Check if all 4 league data requests are complete
