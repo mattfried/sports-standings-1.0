@@ -1,4 +1,5 @@
 # Don't track the following files:
 
+node_modules
 config.js
 /results/
