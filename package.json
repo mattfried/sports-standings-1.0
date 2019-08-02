@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mysportsfeeds-node": "^2.0.1",
+    "mysportsfeeds-node": "git+https://github.com/mattfried/mysportsfeeds-node.git",
     "socket.io": "^2.2.0"
   }
 }
