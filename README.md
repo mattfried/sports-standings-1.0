@@ -1,9 +1,9 @@
 ___
-\*** ***Update: Refer to [sports-standings](https://github.com/mattfried/sports-standings) for updated repo & website*** ***
+\*** ***Update: Refer to [sports-standings](https://github.com/mattfried/sports-standings) for full updated website*** ***
 ___
 
-# sports-standings
-Sports Standings app
+# sports-standings-demo
+Sports Standings demo app
 
 https://secure-anchorage-39914.herokuapp.com/
 
