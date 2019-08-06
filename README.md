@@ -13,7 +13,7 @@ Sports standings website with real-time data for the most popular leagues.
 
 
 ## Approach:
-This website utilizes [MySportsFeeds](https://www.mysportsfeeds.com/) data API, and incorporates a modified version of their [NodeJS wrapper](https://github.com/MySportsFeeds/mysportsfeeds-node) in "data.js". The modified repo is forked to my account [here](https://github.com/mattfried/mysportsfeeds-node).
+This website utilizes [MySportsFeeds](https://www.mysportsfeeds.com/) data API, and incorporates a self-modified version of their [NodeJS wrapper](https://github.com/mattfried/mysportsfeeds-node) in "data.js".
 ExpressJS framework is used to deploy the web application from the static web files located in "public/" directory.  
 Socket.IO library is used to seamlessly communicate between the client and server. In this case, transferring the returned data from the server-side API request to the client-side to manipulate in "public/app.js".
 
